@@ -1,0 +1,35 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import seaborn as sns
+import plotly.express as px
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_samples,silhouette_score
+from sklearn.cluster import AgglomerativeClustering
+from scipy.cluster.hierarchy import dendrogram
+from sklearn.cluster import DBSCAN
+# Packages I use for marketing activies to find a specific amount of customers that clients will deal with.
+
+#reading the CSV File given to me
+df = pd.read_csv('Name_of_Customer_Data.csv')
+
+# a Pie chart that will create a ratio between Gender
+d= pd.DataFrame(df['Gender'].value_counts())
+fig = px.pie(d,values='Gender',names=['Male','Female'],hole=0.8,opacity=0.9,
+            
+
+fig.add_annotation(text='Gender',
+                   x=0.5,y=0.5,showarrow=True,font_size=18,opacity=0.7,font_family='sans-serif')
+
+fig.update_layout(
+    font_family='sans-serif',
+    title=dict(text='Gender Ratio',x=0.5,y=0.98,
+               font=dict(color=colors_dark[2],size=20)),
+    legend=dict(x=0.37,y=-0.05,orientation='h',traceorder='reversed'),
+    hoverlabel=dict(bgcolor='white'))
+
+fig.update_traces(textposition='outside', textinfo='percent+label')
+
+fig.show()
