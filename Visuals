@@ -26,10 +26,26 @@ fig.add_annotation(text='Gender',
 fig.update_layout(
     font_family='sans-serif',
     title=dict(text='Gender Ratio',x=0.5,y=0.98,
-               font=dict(color=colors_dark[2],size=20)),
-    legend=dict(x=0.37,y=-0.05,orientation='h',traceorder='reversed'),
+               font=dict(color=colors_dark[4],size=20)),
+    legend=dict(x=0.5,y=-0.07,orientation='h',traceorder='reversed'),
     hoverlabel=dict(bgcolor='white'))
 
 fig.update_traces(textposition='outside', textinfo='percent+label')
 
 fig.show()
+
+#Histogram To Show the ages of your clients.
+
+fig = px.histogram(df,x='Age',opacity=0.7,nbins=25,)
+
+fig.update_layout(
+    font_family='sans-serif',
+    title=dict(text='Distribution Of Age',x=0.5,y=0.95,
+             
+    xaxis_title_text='Age',
+    yaxis_title_text='Count',
+    legend=dict(x=1,y=0.96,borderwidth=0,tracegroupgap=5),
+    bargap=0.3,
+)
+fig.show()
+
